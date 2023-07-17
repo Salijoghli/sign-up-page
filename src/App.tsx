@@ -1,25 +1,44 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Container, GlobalStyles } from "@mui/material";
+import { Grid } from "@mui/material";
+import { FirstHalf } from "./components/firstHalf";
+import { SecondHalf } from "./components/secondHalf";
+
+const defaultStyles = (
+  <GlobalStyles
+    styles={{
+      body: { backgroundColor: "#F6FAFF" },
+    }}
+  />
+);
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <>
+      {defaultStyles}
+      <Container
+        maxWidth={false}
+        sx={{
+          width: "100vw",
+          height: "100vh",
+          display: "flex",
+          alignItems: "center",
+        }}
+      >
+        <Grid
+          spacing={3}
+          sx={{
+            width: "90%",
+            height: "80%",
+            mx: "auto",
+            display: "flex",
+            flexDirection: "rows",
+          }}
         >
-          Learn React
-        </a>
-      </header>
-    </div>
+          <FirstHalf />
+          <SecondHalf />
+        </Grid>
+      </Container>
+    </>
   );
 }
 
